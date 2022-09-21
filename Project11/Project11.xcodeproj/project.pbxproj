@@ -29,6 +29,8 @@
 		5E59FBF128D6214E007EC118 /* ballCyan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E59FBE228D6214E007EC118 /* ballCyan@2x.png */; };
 		5E59FBF228D6214E007EC118 /* background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E59FBE328D6214E007EC118 /* background@2x.jpg */; };
 		5E59FBF328D6214E007EC118 /* ballGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E59FBE428D6214E007EC118 /* ballGreen@2x.png */; };
+		5E66B13328D9F42200B4F6EE /* SmokeParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5E66B13128D9F42200B4F6EE /* SmokeParticles.sks */; };
+		5E66B13428D9F42200B4F6EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E66B13228D9F42200B4F6EE /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		5E59FBE228D6214E007EC118 /* ballCyan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ballCyan@2x.png"; sourceTree = "<group>"; };
 		5E59FBE328D6214E007EC118 /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background@2x.jpg"; sourceTree = "<group>"; };
 		5E59FBE428D6214E007EC118 /* ballGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ballGreen@2x.png"; sourceTree = "<group>"; };
+		5E66B13128D9F42200B4F6EE /* SmokeParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SmokeParticles.sks; sourceTree = "<group>"; };
+		5E66B13228D9F42200B4F6EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				5E59FBD628D6214E007EC118 /* FireParticles.sks */,
+				5E66B13128D9F42200B4F6EE /* SmokeParticles.sks */,
+				5E66B13228D9F42200B4F6EE /* Assets.xcassets */,
 				5E59FBD728D6214E007EC118 /* ballBlue@2x.png */,
 				5E59FBD828D6214E007EC118 /* slotGlowBad@2x.png */,
 				5E59FBD928D6214E007EC118 /* ballYellow@2x.png */,
@@ -183,6 +189,7 @@
 				5E59FBF028D6214E007EC118 /* ballRed@2x.png in Resources */,
 				5E59FBEA28D6214E007EC118 /* ballPurple@2x.png in Resources */,
 				5E59FBEB28D6214E007EC118 /* slotBaseBad@2x.png in Resources */,
+				5E66B13428D9F42200B4F6EE /* Assets.xcassets in Resources */,
 				5E59FBE928D6214E007EC118 /* slotBaseGood@2x.png in Resources */,
 				5E59FBC128D6140D007EC118 /* GameScene.sks in Resources */,
 				5E59FBEF28D6214E007EC118 /* slotGlowGood@2x.png in Resources */,
@@ -194,6 +201,7 @@
 				5E59FBF328D6214E007EC118 /* ballGreen@2x.png in Resources */,
 				5E59FBE628D6214E007EC118 /* ballBlue@2x.png in Resources */,
 				5E59FBF128D6214E007EC118 /* ballCyan@2x.png in Resources */,
+				5E66B13328D9F42200B4F6EE /* SmokeParticles.sks in Resources */,
 				5E59FBEE28D6214E007EC118 /* bouncer@2x.png in Resources */,
 				5E59FBEC28D6214E007EC118 /* ballGrey@2x.png in Resources */,
 				5E59FBF228D6214E007EC118 /* background@2x.jpg in Resources */,
