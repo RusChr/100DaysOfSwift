@@ -13,6 +13,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	var editLabel: SKLabelNode!
 	
 	var balls = [String]()
+	var ballsCnt = 0
 	
 	var score = 0 {
 		didSet {
@@ -87,7 +88,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 					addChild(box)
 					
 				} else {
+					guard ballsCnt < 5 else { return }
+					
 					let ball = SKSpriteNode(imageNamed: getRandomBall())
+					ballsCnt += 1
 					ball.name = "ball"
 					ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
 					ball.physicsBody?.restitution = 0.999
@@ -159,6 +163,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		}
 		
 		ball.removeFromParent()
+		ballsCnt -= 1
 	}
 	
 	
