@@ -8,7 +8,10 @@
 import UIKit
 
 class ViewController: UITableViewController {
+	
     var pictures = [String]()
+	var viewCnt = 0
+	
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,26 +30,52 @@ class ViewController: UITableViewController {
         }
         pictures = pictures.sorted()
     }
+	
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pictures.count
     }
+	
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
-        cell.textLabel?.text = pictures[indexPath.row]
+		let currentItem = pictures[indexPath.row]
+		viewCnt = viewCount(for: currentItem)
+        cell.textLabel?.text = currentItem
+		cell.detailTextLabel?.text = "views: \(viewCnt)"
         return cell
     }
     
+	
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController { 
-            vc.selectedImage = pictures[indexPath.row]
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+			let currentItem = pictures[indexPath.row]
+            vc.selectedImage = currentItem
             vc.detailVCTitle = "Picture \(indexPath.row + 1) of \(pictures.count)"
-            vc.activityVCTitle = pictures[indexPath.row]
+            vc.activityVCTitle = currentItem
             navigationController?.pushViewController(vc, animated: true)
+			
+			viewCnt = viewCount(for: currentItem) + 1
+			save(value: viewCnt, for: currentItem)
         }
     }
 
-
+	
+	func save(value: Int, for key: String) {
+		let defaults = UserDefaults.standard
+		defaults.set(value, forKey: key)
+		tableView.reloadData()
+	}
+	
+	
+	func viewCount(for key: String) -> Int {
+		let defaults = UserDefaults.standard
+		
+		if let savedViewCnt = defaults.object(forKey: key) as? Int {
+			return savedViewCnt
+		}
+		
+		return 0
+	}
 }
 
