@@ -31,7 +31,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 		
-		guard let image = info[.editedImage] as? UIImage else { return }
+		guard let image = info[.originalImage] as? UIImage else { return }
 		
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "MMddyyyyHHmmss"
@@ -63,7 +63,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 	
 	@objc func takePhoto() {
 		let picker = UIImagePickerController()
-		picker.allowsEditing = true
+		picker.allowsEditing = false
 		picker.delegate = self
 		
 		if UIImagePickerController.isSourceTypeAvailable(.camera) {
