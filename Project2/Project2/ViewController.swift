@@ -37,6 +37,7 @@ class ViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showScore))
     }
     
+	
     func askQuestion(action: UIAlertAction!) {
         countries.shuffle()
         
@@ -51,31 +52,43 @@ class ViewController: UIViewController {
         questionCount += 1
     }
     
+	
     @IBAction func buttonTapped(_ sender: UIButton) {
-        var title: String
-        
-        if sender.tag == correctAnswer {
-            title = "Correct"
-            score += 1
-            if score == 10 {
-                showAlert(title: "WIN", message: "You are a winner!", actionTitle: "Start new game")
-                score = 0
-            } else {
-                showAlert(title: title, message: "Your score is \(score)")
-            }
-        } else {
-            title = "Wrong! That's the flag of \(countries[sender.tag].uppercased())"
-            score -= 1
-            showAlert(title: title, message: "Your score is \(score)")
-        }
+		UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: []) {
+			sender.imageView?.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+			sender.layer.transform = CATransform3DMakeScale(1.1, 1.1, 1)
+		} completion: { [unowned self] _ in
+			var title: String
+			
+			if sender.tag == correctAnswer {
+				title = "Correct"
+				score += 1
+				if score == 10 {
+					showAlert(title: "WIN", message: "You are a winner!", actionTitle: "Start new game")
+					score = 0
+				} else {
+					showAlert(title: title, message: "Your score is \(score)")
+				}
+			} else {
+				title = "Wrong! That's the flag of \(countries[sender.tag].uppercased())"
+				score -= 1
+				showAlert(title: title, message: "Your score is \(score)")
+			}
+			
+			UIView.animate(withDuration: 1.5) {
+				sender.layer.transform = CATransform3DMakeScale(1, 1, 1)
+			}
+		}
     }
     
+	
     func showAlert(title: String, message: String, actionTitle: String = "Continue") {
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: actionTitle, style: .default, handler: askQuestion))
         present(ac, animated: true)
     }
     
+	
     @objc func showScore() {
         let ac = UIAlertController(title: "Score", message: "Score is \(score)", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Done", style: .default))

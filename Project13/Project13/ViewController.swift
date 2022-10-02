@@ -67,6 +67,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
 		picker.allowsEditing = true
 		picker.delegate = self
 		present(picker, animated: true)
+		
+		imageView.backgroundColor = .init(white: 1, alpha: 0)
+		
+		UIView.animate(withDuration: 1) {
+			self.imageView.backgroundColor = .init(white: 1, alpha: 1)
+		}
 	}
 	
 	
