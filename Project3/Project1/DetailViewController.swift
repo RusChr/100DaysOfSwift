@@ -22,7 +22,9 @@ class DetailViewController: UIViewController {
         title = detailVCTitle
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
         navigationItem.largeTitleDisplayMode = .never
-
+		
+		//assert(imageView == nil, "imageView is nil")
+		
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
         }
